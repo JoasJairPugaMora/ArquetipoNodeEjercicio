@@ -29,4 +29,10 @@ export interface IUserFacade {
      * @memberof IUserFacade
      */
     consumer(id: number): Promise<void>;
+
+    /**
+     * @returns {Promise<any[]>}
+     * @memberof IUserFacade
+     */
+    update_user(id: number, userTo:UserTo): Promise<void>;
 }

@@ -3,6 +3,7 @@ import { UserService } from "../../services";
 import { UserTo } from "../../to/UserTo";
 import { IUserFacade } from "./interface";
 import * as Kafka from '../../config/stream/kafka';
+import { ParametersError } from "../../config/error";
 
 
 /**
@@ -45,7 +46,19 @@ const UserFacade: IUserFacade = {
      */
     async consumer(id: number): Promise<void> {
         await UserService.del(id);
-    }
+    },
+
+    /**
+     * @returns {Promise < any[] >}
+     * @memberof UserFacade
+     */
+    async update_user(idToUpdate: number, userTo: UserTo): Promise<void> {
+        try {
+          await UserService.update_user(idToUpdate, userTo);
+        } catch (error) {
+          throw new ParametersError("No se pudo actualizar");
+        }
+      },
 }
 
 export default UserFacade;

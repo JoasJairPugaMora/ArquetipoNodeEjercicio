@@ -56,7 +56,21 @@ const UserService: IUserService = {
                 id:id
             }
         });
-    }
+    },
+
+    /**
+     * @returns {Promise < any[] >}
+     * @memberof UserFacade
+     */
+    async update_user(idToUpdate: number, userTo: UserTo): Promise<void> {
+        try {
+          let result = await Users.update(userTo, { where: { id: idToUpdate } });
+          console.log("Result on service update: ", result);
+        } catch (error) {
+          console.log("Error on service update ", error);
+          throw new ParametersError("No se pudo actualizar");
+        }
+      },
 }
 
 export default UserService;

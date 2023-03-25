@@ -32,3 +32,14 @@ export async function create(user: UserTo): Promise<UserTo> {
 export async function del(id: number): Promise<void> {
     return await UserService.del(id);
 }
+
+/**
+ * @export
+ * @returns {Promise < any[] >}
+ */
+export async function update_user(
+    idToUpdate: number,
+    userTo: UserTo
+  ): Promise<void> {
+    return await UserService.update_user(idToUpdate, userTo);
+}

@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'test'
 import { expect } from "chai";
 import { db } from '../../src/config/connection/database';
 import { ParametersError } from "../../src/config/error";
-import { RoleTo } from "../../src/to/RoleTo ";
+import { RoleTo } from "../../src/to/RoleTo";
 import RoleFacade from "../../src/facade/Role/facade";
 
 describe('RoleFacade Test', () => {

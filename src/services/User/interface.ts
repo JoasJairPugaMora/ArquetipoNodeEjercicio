@@ -30,4 +30,10 @@ export interface IUserService {
      * @memberof IUserService
      */
     del(id: number): Promise<void>;
+
+    /**
+   * @returns {Promise<any[]>}
+   * @memberof IRoleService
+   */
+  update_user(idToUpdate: number, userTo: UserTo): Promise<void>;
 }

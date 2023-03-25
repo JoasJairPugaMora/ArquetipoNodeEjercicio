@@ -62,6 +62,37 @@ router.get('', UserFacade.findAll);
  */
 router.post('', UserFacade.save);
 
+/**
+ * PATCH method user
+ * @example http://localhost:PORT/users
+ * @swagger
+ * /user/{id}/id:
+ *  patch:
+ *    description: update user
+ *    tags: ["Users"]
+ *    requestBody:
+ *      description: object user
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/UserTo'
+ *    responses:
+ *      200:
+ *        description: All users
+ *        content:
+ *          appication/json:
+ *            schema:
+ *              $ref: '#/components/schemas/UserTo'
+ *      400:
+ *        description: Error bad parameters
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/ErrorTo'
+ */
+router.patch("/:id/name", UserFacade.update_user);
+
 
 /**
  * DELETE method route

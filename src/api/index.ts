@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as http from 'http';
 import * as swaggerUi from 'swagger-ui-express';
 import UserRouter from './UserRouter';
-import RoleRouter from './RoleRouter';
+import {router as RoleRouter} from './RoleRouter';
 import cors from 'cors';
 let swaggerDoc: Object;
 
