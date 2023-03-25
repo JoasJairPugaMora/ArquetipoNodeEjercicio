@@ -36,4 +36,37 @@ describe('RoleFacade Test', () => {
         });
     });
 
+    describe("FindAll", () => {
+        it("should return roles", async () => {
+          const roles: any[] = await RoleFacade.findAll();
+          expect(1).equal(roles.length);
+        });
+      });
+    
+      describe("Update", () => {
+        it("should return id updated", async () => {
+          let roleTo: RoleTo = {
+            id: 1,
+            name: "Employee",
+          };
+          try {
+            await RoleFacade.update_role(roleTo);
+            //expect(result).instanceOf(Promise<void>);
+          } catch (error) {
+            expect(error).equal(new ParametersError("No se pudo actualizar"));
+          }
+        });
+      });
+    
+      describe("Delete error", () => {
+        it("should return error -> User not exist", async () => {
+          let idToDelete: number = 999;
+          try {
+            await RoleFacade.delete_role(idToDelete);
+          } catch (error) {
+            expect(error).instanceOf(ParametersError);
+          }
+        });
+      });
+
 });

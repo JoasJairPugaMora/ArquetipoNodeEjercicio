@@ -67,5 +67,35 @@ describe('UserFacade Test', () => {
         });
     });
 
+    describe("Update", () => {
+        it("should return id updated", async () => {
+          let userTo: UserTo = {
+            id: 1,
+            name: "Employee",
+          };
+          try {
+            await UserFacade.update_user(userTo.id!,userTo);
+            //expect(result).instanceOf(Promise<void>);
+          } catch (error) {
+            expect(error).equal(new ParametersError("No se pudo actualizar"));
+          }
+        });
+      });
+
+      describe("Update", () => {
+        it("should return id updated", async () => {
+          let userTo: UserTo = {
+            id: 99,
+            name: "Employee",
+          };
+          try {
+            await UserFacade.update_user(userTo.id!,userTo);
+            //expect(result).instanceOf(Promise<void>);
+          } catch (error) {
+            expect(error).equal(new ParametersError("No se pudo actualizar"));
+          }
+        });
+      });
+
 
 });
